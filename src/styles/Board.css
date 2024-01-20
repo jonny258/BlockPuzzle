@@ -6,7 +6,7 @@
     justify-content: center; /* Center the grid horizontally */
     align-content: center; /* Center the grid vertically */
     /* Set a specific size for the board or make it responsive to the parent's size */
-    max-width: 600px;
+    max-width: 480px;
   }
   
   /* Style for individual squares */
@@ -15,5 +15,6 @@
     border: 1px solid #999; /* Border for squares */
     background-color: #ddd; /* Background color for squares */
     box-sizing: border-box; /* Include border in the element's total width and height */
+    width: 60px;
   }
   

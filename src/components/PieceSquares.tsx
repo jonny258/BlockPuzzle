@@ -3,7 +3,7 @@ import '../styles/Pieces.css'
 
 function PieceSquares() {
   return (
-    <div className="square"></div> //Change the classes on this
+    <div className="piece-square"></div> //Change the classes on this
   );
 }
 
