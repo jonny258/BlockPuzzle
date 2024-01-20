@@ -1,0 +1,6 @@
+.square {
+    aspect-ratio: 1 / 1; /* Makes each square shape */
+    border: 1px solid #999; /* Border for squares */
+    background-color: #ddd; /* Background color for squares */
+    box-sizing: border-box; /* Include border in the element's total width and height */
+  }

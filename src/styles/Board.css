@@ -1,0 +1,19 @@
+/* Style for the board grid */
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* Creates 8 columns */
+    gap: 0; /* No gap between squares */
+    justify-content: center; /* Center the grid horizontally */
+    align-content: center; /* Center the grid vertically */
+    /* Set a specific size for the board or make it responsive to the parent's size */
+    max-width: 600px;
+  }
+  
+  /* Style for individual squares */
+  .square {
+    aspect-ratio: 1 / 1; /* Makes each square shape */
+    border: 1px solid #999; /* Border for squares */
+    background-color: #ddd; /* Background color for squares */
+    box-sizing: border-box; /* Include border in the element's total width and height */
+  }
+  

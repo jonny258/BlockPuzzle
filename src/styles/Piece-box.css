@@ -1,0 +1,8 @@
+.piece-box {
+    width: 600px; /* This will make the width match the grid's width */
+    text-align: center;
+    margin-top: 1rem; /* Add space between the grid and the PieceBox if needed */
+    /* Additional styles for PieceBox */
+    background-color: antiquewhite;
+    height: 200px;
+  }
