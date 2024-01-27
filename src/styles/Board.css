@@ -1,28 +1,27 @@
 /* Style for the board grid */
 .board-grid {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr); /* Creates 8 columns */
-    gap: 0; /* No gap between squares */
-    justify-content: center; /* Center the grid horizontally */
-    align-content: center; /* Center the grid vertically */
-    /* Set a specific size for the board or make it responsive to the parent's size */
-    max-width: 480px;
-  }
-  
-  /* Style for individual squares */
-  .square {
-    aspect-ratio: 1 / 1; /* Makes each square shape */
-    border: 1px solid #999; /* Border for squares */
-    background-color: #ddd; /* Background color for squares */
-    box-sizing: border-box; /* Include border in the element's total width and height */
-    width: 60px;
-  }
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* Creates 8 columns */
+  gap: 0; /* No gap between squares */
+  justify-content: center; /* Center the grid horizontally */
+  align-content: center; /* Center the grid vertically */
+  /* Set a specific size for the board or make it responsive to the parent's size */
+  max-width: 480px;
+}
 
-  .hovered {
-    background-color: #963232;
-  }
+/* Style for individual squares */
+.square {
+  aspect-ratio: 1 / 1; /* Makes each square shape */
+  border: 1px solid #999; /* Border for squares */
+  background-color: #ddd; /* Background color for squares */
+  box-sizing: border-box; /* Include border in the element's total width and height */
+  width: 60px;
+}
 
-  .surrounding {
-    background-color: #300707;
-  }
-  
+.hovered {
+  background-color: #963232;
+}
+
+.placed {
+  background-color: #180f0f !important;
+}

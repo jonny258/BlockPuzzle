@@ -1,15 +1,18 @@
 .piece-square { 
-    aspect-ratio: 1 / 1; /* Makes each square shape */
-    border: 1px solid #3b3b3b; /* Border for squares */
-    box-sizing: border-box; /* Include border in the element's total width and height */
+    aspect-ratio: 1 / 1;
+    border: 1px solid #3b3b3b; 
+    box-sizing: border-box; 
     width: 60px; 
   }
-/* CHANGE THE NAME OF THIS CLASS */
 
-  /* TwoByTwo.css */
 .two-by-two {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Creates two columns */
-  grid-template-rows: repeat(2, 1fr); /* Creates two rows */
-  gap: 0; /* Adjust if you want space between squares */
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0;
+  background-color: #df2929;
+}
+
+.selected {
+  filter: brightness(80%);
 }

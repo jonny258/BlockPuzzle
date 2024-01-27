@@ -8,6 +8,7 @@ function App() {
   const [selectedPiece, setSelectedPiece] = useState({
     position: null,
     piece: null,
+    color: null,
   });
 
   // Handler to reset selected piece
@@ -17,6 +18,7 @@ function App() {
       setSelectedPiece({
         position: null,
         piece: null,
+        color: null,
       });
     }
   };

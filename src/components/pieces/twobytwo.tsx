@@ -18,15 +18,20 @@ function Twobytwo({
       setSelectedPiece({
         position: pieceRef.current?.parentNode?.id,
         piece: "two-by-two",
+        color: "#df2929",
       });
     }
-    console.log(selectedPiece)
+    console.log(selectedPiece);
   };
 
   return (
     <div
       ref={pieceRef}
-      className={selectedPiece.position === pieceRef.current?.parentNode?.id ? "two-by-two bg-red-600" : "two-by-two bg-red-400"}
+      className={
+        selectedPiece.position === pieceRef.current?.parentNode?.id
+          ? "two-by-two selected"
+          : "two-by-two"
+      }
       onClick={PieceClickHandler}
     >
       <PieceSquares />
