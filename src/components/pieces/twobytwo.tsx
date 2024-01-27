@@ -1,15 +1,17 @@
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import PieceSquares from "../PieceSquares";
 import "../../styles/Pieces.css";
 
-function Twobytwo({
+interface TwobytwoProps {
+  selectedPiece: any; // Replace 'any' with a specific type if possible
+  setSelectedPiece: React.Dispatch<React.SetStateAction<any>>; // Replace 'any' with the state type
+}
+
+const Twobytwo: React.FC<TwobytwoProps> = ({
   selectedPiece,
   setSelectedPiece,
-}: {
-  selectedPiece: any;
-  setSelectedPiece: any;
-}) {
-  const pieceRef = useRef();
+}) => {
+  const pieceRef = useRef<any>();
 
   const PieceClickHandler = (event: React.MouseEvent) => {
     event.stopPropagation(); // Prevent the click from bubbling up to the global click handler
@@ -40,6 +42,6 @@ function Twobytwo({
       <PieceSquares />
     </div>
   );
-}
+};
 
 export default Twobytwo;

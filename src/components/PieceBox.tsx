@@ -1,4 +1,4 @@
-import React from 'react'
+
 import '../styles/Piece-box.css'
 import Twobytwo from './pieces/twobytwo'
 import Onebyone from './pieces/onebyone'

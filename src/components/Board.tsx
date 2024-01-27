@@ -1,34 +1,39 @@
 import React, { useState } from "react";
 import "../styles/Board.css";
 import BoardSquares from "./BoardSquares";
-import { calculateTwoByTwoSquares } from "../utils/PieceCalculations";
+import { calculateTwoByTwoSquares } from "../utils/PieceCalculations"
 
-function Board({ selectedPiece, setSelectedPiece }) {
-  const [hoveredPieces, setHoveredPieces] = useState([]);
-  const [placedPieces, setPlacedPieces] = useState([]);
+interface BoardProps {
+  selectedPiece: any; // Replace 'any' with a specific type if possible
+  setSelectedPiece: React.Dispatch<React.SetStateAction<any>>; // Replace 'any' with the state type
+}
+
+const Board: React.FC<BoardProps> = ({ selectedPiece, setSelectedPiece }) => {
+  const [hoveredPieces, setHoveredPieces] = useState<number[]>([]);
+  const [placedPieces, setPlacedPieces] = useState<any[]>([]);
 
   const squares = Array(64).fill(null);
 
-  const hoverSquareHandler = (index) => {
+  const hoverSquareHandler = (index: number) => {
     if (selectedPiece.piece === "two-by-two") {
       setHoveredPieces(calculateTwoByTwoSquares(index));
     }
   };
 
-  const boardClickHandler = (event) => {
+  const boardClickHandler = (event: { stopPropagation: () => void; }) => {
     event.stopPropagation();
-  
-    const hasOverlap = hoveredPieces.some(pieceIndex =>
-      placedPieces.some(placedPiece => placedPiece.index === pieceIndex)
+
+    const hasOverlap = hoveredPieces.some((pieceIndex) =>
+      placedPieces.some((placedPiece) => placedPiece.index === pieceIndex)
     );
-  
+
     if (!hasOverlap) {
-      const newPlacedPieces = hoveredPieces.map(pieceIndex => ({
+      const newPlacedPieces = hoveredPieces.map((pieceIndex) => ({
         index: pieceIndex,
-        color: selectedPiece.color
+        color: selectedPiece.color,
       }));
       setPlacedPieces([...placedPieces, ...newPlacedPieces]);
-  
+
       setSelectedPiece({
         position: null,
         piece: null,
@@ -51,6 +56,6 @@ function Board({ selectedPiece, setSelectedPiece }) {
       ))}
     </div>
   );
-}
+};
 
 export default Board;

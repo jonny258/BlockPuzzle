@@ -1,14 +1,20 @@
-import React from "react";
 import "../styles/Board.css";
 
-function BoardSquares({
-  isHovered,
+interface BoardSquaresProps {
+  isHovered: boolean,
+  onMouseEnter: () => void,
+  onMouseLeave: () => void,
+  placedPieces: any[],
+  index: number,
+  selectedPiece: any,
+}
+
+const BoardSquares: React.FC<BoardSquaresProps> = ({ isHovered,
   onMouseEnter,
   onMouseLeave,
   placedPieces,
   index,
-  selectedPiece,
-}) {
+  selectedPiece, }) => {
   let className = "square";
   let backgroundColor = "#ddd";
   let tint = 100;
