@@ -10,8 +10,6 @@ function Twobytwo({
   setSelectedPiece: any;
 }) {
   const pieceRef = useRef();
-  // Check if this component is selected
-  // let isSelect = selectedPiece === "two-by-two";
 
   const PieceClickHandler = (event: React.MouseEvent) => {
     event.stopPropagation(); // Prevent the click from bubbling up to the global click handler
@@ -25,15 +23,6 @@ function Twobytwo({
     console.log(selectedPiece)
   };
 
-  // Whenever the global selectedPiece changes, check if this component should update its selected state
-  // useEffect(() => {
-  //   if (selectedPiece !== "two-by-two") {
-  //     // Other component is selected or selection is cleared, so clear the selection state if it was set for this component
-  //     isSelect = false;
-  //   }
-  // }, [selectedPiece]);
-
-  // This erroe does nothing???
   return (
     <div
       ref={pieceRef}

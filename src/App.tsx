@@ -33,7 +33,10 @@ function App() {
 
   return (
     <>
-      <Board />
+      <Board
+        setSelectedPiece={setSelectedPiece}
+        selectedPiece={selectedPiece}
+      />
       <PieceBox
         setSelectedPiece={setSelectedPiece}
         selectedPiece={selectedPiece}

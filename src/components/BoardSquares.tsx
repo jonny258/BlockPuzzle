@@ -1,10 +1,20 @@
-import React from 'react';
-import '../styles/Board.css'; // Make sure to import the CSS file
+import React from "react";
+import "../styles/Board.css";
 
-function BoardSquares() {
+function BoardSquares({ isHovered, onMouseEnter, onMouseLeave }) {
+  let className = "square";
+  if (isHovered) {
+    className += " hovered";
+  }
+
   return (
-    <div className="square"></div>
+    <div
+      className={className}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    ></div>
   );
 }
+
 
 export default BoardSquares;
