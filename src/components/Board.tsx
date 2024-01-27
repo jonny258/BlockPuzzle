@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Board.css";
 import BoardSquares from "./BoardSquares";
-import { calculateTwoByTwoSquares } from "../utils/PieceCalculations"
+import { calculateTwoByTwoSquares, calculateThreeByThreeSquares } from "../utils/PieceCalculations"
 
 interface BoardProps {
   selectedPiece: any; // Replace 'any' with a specific type if possible
@@ -17,6 +17,12 @@ const Board: React.FC<BoardProps> = ({ selectedPiece, setSelectedPiece }) => {
   const hoverSquareHandler = (index: number) => {
     if (selectedPiece.piece === "two-by-two") {
       setHoveredPieces(calculateTwoByTwoSquares(index));
+    }
+    if (selectedPiece.piece === "one-by-one") {
+      setHoveredPieces([index]);
+    }
+    if (selectedPiece.piece === "three-by-three") {
+      setHoveredPieces(calculateThreeByThreeSquares(index));
     }
   };
 

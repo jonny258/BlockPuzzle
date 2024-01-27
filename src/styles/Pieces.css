@@ -5,6 +5,21 @@
     width: 60px; 
   }
 
+
+
+.selected {
+  filter: brightness(80%);
+}
+
+/* Squares */
+.one-by-one {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 0;
+  background-color: #ea00fffb;
+}
+
 .two-by-two {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -13,6 +28,10 @@
   background-color: #df2929;
 }
 
-.selected {
-  filter: brightness(80%);
+.three-by-three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0;
+  background-color: #18e611;
 }

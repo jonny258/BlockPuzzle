@@ -1,7 +1,8 @@
 
 import '../styles/Piece-box.css'
-import Twobytwo from './pieces/twobytwo'
-import Onebyone from './pieces/onebyone'
+import Twobytwo from './pieces/Square-Shapes/twobytwo'
+import Onebyone from './pieces/Square-Shapes/onebyone'
+import Threebythree from './pieces/Square-Shapes/threebythree'
 
 function PieceBox({selectedPiece, setSelectedPiece}: {selectedPiece: any, setSelectedPiece: any}) {
   return (
@@ -10,10 +11,10 @@ function PieceBox({selectedPiece, setSelectedPiece}: {selectedPiece: any, setSel
         <Twobytwo setSelectedPiece={setSelectedPiece} selectedPiece={selectedPiece}/>
       </div>
       <div className="flex-1 flex justify-center items-center" id="2">
-        <Onebyone />
+        <Onebyone setSelectedPiece={setSelectedPiece} selectedPiece={selectedPiece}/>
       </div>
       <div className="flex-1 flex justify-center items-center" id="3">
-        <Twobytwo setSelectedPiece={setSelectedPiece} selectedPiece={selectedPiece}/>
+        <Threebythree setSelectedPiece={setSelectedPiece} selectedPiece={selectedPiece}/>
       </div>
     </div>
   );
