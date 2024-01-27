@@ -4,12 +4,18 @@ import "./App.css";
 import Board from "./components/Board";
 import PieceBox from "./components/PieceBox";
 
+import Onebyone from "./components/pieces/Square-Shapes/onebyone";
+import Twobytwo from "./components/pieces/Square-Shapes/twobytwo";
+import Threebythree from "./components/pieces/Square-Shapes/threebythree";
+
 function App() {
   const [selectedPiece, setSelectedPiece] = useState({
     position: null,
     piece: null,
     color: null,
   });
+  const [randomPieces, setRandomPieces] = useState([]);
+  const pieceTypes = [Onebyone, Twobytwo, Threebythree];
 
   // Handler to reset selected piece
   const handleGlobalClick = (event: MouseEvent) => {
@@ -22,31 +28,48 @@ function App() {
       });
     }
   };
+  const newRandomPieces = () => {
+    const selectedPieces = Array.from({ length: pieceTypes.length }, () => {
+      const randomIndex = Math.floor(Math.random() * pieceTypes.length);
+      return pieceTypes[randomIndex];
+    });
+
+    setRandomPieces(selectedPieces);
+  }
 
   useEffect(() => {
-    // Attach the click event listener to the window object
+    newRandomPieces()
     window.addEventListener("click", handleGlobalClick);
 
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener("click", handleGlobalClick);
     };
   }, []);
+
+
+  useEffect(() => {
+    if(randomPieces.every(piece => piece === null)) {
+      newRandomPieces()
+    }
+  }, [randomPieces]);
 
   return (
     <>
       <Board
         setSelectedPiece={setSelectedPiece}
         selectedPiece={selectedPiece}
+        setRandomPieces={setRandomPieces}
       />
-      <PieceBox
-        setSelectedPiece={setSelectedPiece}
-        selectedPiece={selectedPiece}
-      />
+      {randomPieces.length && (
+        <PieceBox
+          randomPieces={randomPieces}
+          setRandomPieces={setRandomPieces}
+          setSelectedPiece={setSelectedPiece}
+          selectedPiece={selectedPiece}
+        />
+      )}
     </>
   );
 }
 
 export default App;
-
-// I need to make the pieces selectable and then I need to make them draggable, and I need to first make it so that when I select a piece it changes color and doesn't select the other piece

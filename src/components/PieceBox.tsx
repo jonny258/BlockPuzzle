@@ -1,23 +1,51 @@
+import "../styles/Piece-box.css";
 
-import '../styles/Piece-box.css'
-import Twobytwo from './pieces/Square-Shapes/twobytwo'
-import Onebyone from './pieces/Square-Shapes/onebyone'
-import Threebythree from './pieces/Square-Shapes/threebythree'
+interface PieceBoxProps {
+  selectedPiece: any;
+  setSelectedPiece: React.Dispatch<React.SetStateAction<any>>;
+  randomPieces: any;
+  setRandomPieces: React.Dispatch<React.SetStateAction<any>>;
+}
 
-function PieceBox({selectedPiece, setSelectedPiece}: {selectedPiece: any, setSelectedPiece: any}) {
+const PieceBox: React.FC<PieceBoxProps> = ({
+  selectedPiece,
+  setSelectedPiece,
+  randomPieces,
+  setRandomPieces,
+}) => {
+  const Piece1 = randomPieces[0];
+  const Piece2 = randomPieces[1];
+  const Piece3 = randomPieces[2];
+
+  console.log(randomPieces);
   return (
     <div className="piece-box flex justify-between">
+      <div className="flex-1 flex justify-center items-center" id="0">
+        {randomPieces[0] && (
+          <Piece1
+            setSelectedPiece={setSelectedPiece}
+            selectedPiece={selectedPiece}
+          />
+        )}
+      </div>
       <div className="flex-1 flex justify-center items-center" id="1">
-        <Twobytwo setSelectedPiece={setSelectedPiece} selectedPiece={selectedPiece}/>
+        {randomPieces[1] && (
+          <Piece2
+            setSelectedPiece={setSelectedPiece}
+            selectedPiece={selectedPiece}
+          />
+        )}
       </div>
       <div className="flex-1 flex justify-center items-center" id="2">
-        <Onebyone setSelectedPiece={setSelectedPiece} selectedPiece={selectedPiece}/>
-      </div>
-      <div className="flex-1 flex justify-center items-center" id="3">
-        <Threebythree setSelectedPiece={setSelectedPiece} selectedPiece={selectedPiece}/>
+        {randomPieces[2] && (
+          <Piece3
+            setSelectedPiece={setSelectedPiece}
+            selectedPiece={selectedPiece}
+          />
+        )}
       </div>
     </div>
   );
-}
+};
 
-export default PieceBox
+export default PieceBox;

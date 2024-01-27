@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import "../styles/Board.css";
 import BoardSquares from "./BoardSquares";
-import { calculateTwoByTwoSquares, calculateThreeByThreeSquares } from "../utils/PieceCalculations"
+import {
+  calculateTwoByTwoSquares,
+  calculateThreeByThreeSquares,
+} from "../utils/PieceCalculations";
 
 interface BoardProps {
-  selectedPiece: any; // Replace 'any' with a specific type if possible
-  setSelectedPiece: React.Dispatch<React.SetStateAction<any>>; // Replace 'any' with the state type
+  selectedPiece: any;
+  setSelectedPiece: React.Dispatch<React.SetStateAction<any>>;
+  setRandomPieces: React.Dispatch<React.SetStateAction<any>>;
 }
 
-const Board: React.FC<BoardProps> = ({ selectedPiece, setSelectedPiece }) => {
+const Board: React.FC<BoardProps> = ({
+  selectedPiece,
+  setSelectedPiece,
+  setRandomPieces,
+}) => {
   const [hoveredPieces, setHoveredPieces] = useState<number[]>([]);
   const [placedPieces, setPlacedPieces] = useState<any[]>([]);
 
@@ -26,7 +34,7 @@ const Board: React.FC<BoardProps> = ({ selectedPiece, setSelectedPiece }) => {
     }
   };
 
-  const boardClickHandler = (event: { stopPropagation: () => void; }) => {
+  const boardClickHandler = (event: { stopPropagation: () => void }) => {
     event.stopPropagation();
 
     const hasOverlap = hoveredPieces.some((pieceIndex) =>
@@ -40,9 +48,19 @@ const Board: React.FC<BoardProps> = ({ selectedPiece, setSelectedPiece }) => {
       }));
       setPlacedPieces([...placedPieces, ...newPlacedPieces]);
 
+      setRandomPieces(prevArray => {
+        const newArray = [...prevArray]
+        newArray[selectedPiece.position] = null
+        console.log(newArray);
+        return newArray;
+      });
+
+      // setRandomPieces([null,null, null]);
+
       setSelectedPiece({
         position: null,
         piece: null,
+        // color: null,
       });
     }
   };
