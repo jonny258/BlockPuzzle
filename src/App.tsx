@@ -15,6 +15,7 @@ function App() {
     color: null,
   });
   const [randomPieces, setRandomPieces] = useState([]);
+  const [score, setScore] = useState(0);
   const pieceTypes = [Onebyone, Twobytwo, Threebythree];
 
   // Handler to reset selected piece
@@ -55,12 +56,17 @@ function App() {
 
   return (
     <>
+      <div className="block align-items-center">
+        <h1 className="text-5xl">Score: {score}</h1>
+      
       <Board
         setSelectedPiece={setSelectedPiece}
         selectedPiece={selectedPiece}
         setRandomPieces={setRandomPieces}
+        score={score}
+        setScore={setScore}
       />
-      {randomPieces.length && (
+      {randomPieces.length > 0 && (
         <PieceBox
           randomPieces={randomPieces}
           setRandomPieces={setRandomPieces}
@@ -68,6 +74,7 @@ function App() {
           selectedPiece={selectedPiece}
         />
       )}
+      </div>
     </>
   );
 }
