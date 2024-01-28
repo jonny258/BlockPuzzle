@@ -36,10 +36,10 @@ const Twobytwo: React.FC<TwobytwoProps> = ({
       }
       onClick={PieceClickHandler}
     >
-      <PieceSquares />
-      <PieceSquares />
-      <PieceSquares />
-      <PieceSquares />
+      <PieceSquares className={""}/>
+      <PieceSquares className={""}/>
+      <PieceSquares className={""}/>
+      <PieceSquares className={""}/>
     </div>
   );
 };

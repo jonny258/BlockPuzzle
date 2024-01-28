@@ -4,6 +4,8 @@ import BoardSquares from "./BoardSquares";
 import {
   calculateTwoByTwoSquares,
   calculateThreeByThreeSquares,
+  calculateRightL,
+  calculateLeftL,
 } from "../utils/PieceCalculations";
 
 interface BoardProps {
@@ -87,6 +89,12 @@ const Board: React.FC<BoardProps> = ({
     }
     if (selectedPiece.piece === "three-by-three") {
       setHoveredPieces(calculateThreeByThreeSquares(index));
+    }
+    if (selectedPiece.piece === "right-l") {
+      setHoveredPieces(calculateRightL(index));
+    }
+    if(selectedPiece.piece === "left-l") {
+      setHoveredPieces(calculateLeftL(index));
     }
   };
 

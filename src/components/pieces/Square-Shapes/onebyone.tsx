@@ -34,7 +34,7 @@ const Onebyone: React.FC<OnebyoneProps> = ({
     }
     onClick={PieceClickHandler}
   >
-      <PieceSquares />
+      <PieceSquares className={""}/>
     </div>
   );
 };

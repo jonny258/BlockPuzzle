@@ -29,3 +29,28 @@ export const calculateThreeByThreeSquares = (index) => {
 
     return hovered;
   }
+
+
+export const calculateRightL = (index) => {
+    // Assuming a 3x3 piece and an 8x8 board
+    const row = Math.floor(index / 8);
+    const col = index % 8;
+    let hovered = [index];
+
+    if (col < 7) hovered.push(index + 1); 
+    if (row < 7) hovered.push(index - 8);
+    if (col < 7 && row < 7) hovered.push(index - 16);
+    return hovered;
+  }
+
+export const calculateLeftL = (index) => {
+    // Assuming a 3x3 piece and an 8x8 board
+    const row = Math.floor(index / 8);
+    const col = index % 8;
+    let hovered = [index];
+
+    if (col < 7) hovered.push(index - 1);
+    if (row < 7) hovered.push(index - 8);
+    if (col < 7 && row < 7) hovered.push(index - 16); 
+    return hovered;
+  }

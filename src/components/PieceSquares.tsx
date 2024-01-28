@@ -1,9 +1,13 @@
 
 import '../styles/Pieces.css'
 
-function PieceSquares() {
+interface PieceSquaresProps {
+  className: string;
+}
+
+function PieceSquares({ className }: PieceSquaresProps) {
   return (
-    <div className="piece-square"></div> //Change the classes on this
+    <div className={`piece-square ${className}`}></div>
   );
 }
 

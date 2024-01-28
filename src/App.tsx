@@ -8,6 +8,9 @@ import Onebyone from "./components/pieces/Square-Shapes/onebyone";
 import Twobytwo from "./components/pieces/Square-Shapes/twobytwo";
 import Threebythree from "./components/pieces/Square-Shapes/threebythree";
 
+import RightL from "./components/pieces/L-Shapes/Right-L";
+import LeftL from "./components/pieces/L-Shapes/Left-L";
+
 function App() {
   const [selectedPiece, setSelectedPiece] = useState({
     position: null,
@@ -16,7 +19,7 @@ function App() {
   });
   const [randomPieces, setRandomPieces] = useState([]);
   const [score, setScore] = useState(0);
-  const pieceTypes = [Onebyone, Twobytwo, Threebythree];
+  const pieceTypes = [Onebyone, Twobytwo, Threebythree, RightL, LeftL];
 
   // Handler to reset selected piece
   const handleGlobalClick = (event: MouseEvent) => {
@@ -30,7 +33,7 @@ function App() {
     }
   };
   const newRandomPieces = () => {
-    const selectedPieces = Array.from({ length: pieceTypes.length }, () => {
+    const selectedPieces = Array.from({ length: 3 }, () => {
       const randomIndex = Math.floor(Math.random() * pieceTypes.length);
       return pieceTypes[randomIndex];
     });

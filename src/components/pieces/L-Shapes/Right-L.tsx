@@ -2,12 +2,12 @@ import { useRef } from "react";
 import PieceSquares from "../../PieceSquares";
 import "../../../styles/Pieces.css";
 
-interface ThreebythreeProps {
+interface RightLProps {
   selectedPiece: any; 
   setSelectedPiece: React.Dispatch<React.SetStateAction<any>>; 
 }
 
-const Threebythree: React.FC<ThreebythreeProps> = ({
+const RightL: React.FC<RightLProps> = ({
   selectedPiece,
   setSelectedPiece,
 }) => {
@@ -19,8 +19,8 @@ const Threebythree: React.FC<ThreebythreeProps> = ({
       console.log(pieceRef.current?.parentNode?.id);
       setSelectedPiece({
         position: pieceRef.current?.parentNode?.id,
-        piece: "three-by-three",
-        color: "#18e611",
+        piece: "right-l",
+        color: "#bde702",
       });
     }
     console.log(selectedPiece);
@@ -31,22 +31,17 @@ const Threebythree: React.FC<ThreebythreeProps> = ({
       ref={pieceRef}
       className={
         selectedPiece.position === pieceRef.current?.parentNode?.id
-          ? "three-by-three selected"
-          : "three-by-three"
+          ? "right-l selected"
+          : "right-l"
       }
       onClick={PieceClickHandler}
     >
-      <PieceSquares className={""}/>
-      <PieceSquares className={""}/>
-      <PieceSquares className={""}/>
-      <PieceSquares className={""}/>
-      <PieceSquares className={""}/>
-      <PieceSquares className={""}/>
-      <PieceSquares className={""}/>
-      <PieceSquares className={""}/>
-      <PieceSquares className={""}/>
+      <PieceSquares className={"l-block"}/>
+      <PieceSquares className={"l-block"}/>
+      <PieceSquares className={"l-block"}/>
+      <PieceSquares className={"l-block"}/>
     </div>
   );
 };
 
-export default Threebythree;
+export default RightL;
